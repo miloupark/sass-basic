@@ -1,0 +1,22 @@
+$fontSize: fs10 10px, fs20 20px, fs30 30px;
+
+@each $className, $fs in $fontSize {
+  .#{$className} {
+    font-size: $fs;
+  }
+}
+
+$imageUrl: "../08-each/images/";
+$listIcon: ".open" "ico_clock.svg", ".dayoff" "ico_date.svg", ".tel" "ico_tel.svg";
+
+@mixin background($fileName, $coordinate) {
+  background: url(#{$imageUrl}#{$fileName}) no-repeat $coordinate;
+}
+
+.shop-info-list {
+  @each $className, $bgImage in $listIcon {
+    #{$className} {
+      @include background($bgImage, left);
+    }
+  }
+}

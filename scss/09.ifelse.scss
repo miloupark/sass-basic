@@ -1,0 +1,138 @@
+@use "sass:math";
+
+@mixin avatar($size) {
+  width: $size;
+  // height: $size;
+  // 같은 값dl 들어가면 정사각형이 됨 or
+  aspect-ratio: 1;
+  // 1:1 비율의 정사각형이 된다
+  object-fit: cover;
+}
+
+.avatar {
+  &__image {
+    img {
+      @include avatar(100px);
+    }
+  }
+}
+
+@mixin avatar2($size, $circle: false) {
+  width: $size;
+  aspect-ratio: 1;
+  object-fit: cover;
+  @if $circle {
+    border-radius: 1000px;
+  }
+}
+
+// 다크모드
+$gray33: #333;
+$gray66: #666;
+$gray33-dark: #dbdbdb;
+$gray66-dark: #ffffff;
+$body: #fff;
+$body-dark: #000;
+
+@mixin darkmode($mode: false) {
+  @if $mode {
+    color: $gray33-dark;
+  } @else {
+    color: $gray33;
+  }
+}
+@mixin darkmode2($mode: false) {
+  @if $mode {
+    color: $gray66-dark;
+  } @else {
+    color: $gray66;
+  }
+}
+@mixin darkmode3($mode: false) {
+  @if $mode {
+    background: $body-dark;
+  } @else {
+    background: $body;
+  }
+}
+
+.avatar2 {
+  text-align: center;
+  &__image {
+    img {
+      @include avatar2(120px, true);
+    }
+  }
+  &__name {
+    @include darkmode;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.9px;
+    .dark & {
+      // 부모의 클래스 명이 dark인 경우
+      @include darkmode(true);
+    }
+  }
+  &__postition {
+    @include darkmode2;
+    font-size: 14px;
+    letter-spacing: -0.7px;
+    .dark & {
+      @include darkmode2(true);
+    }
+  }
+}
+body {
+  @include darkmode3;
+  &.dark {
+    @include darkmode3(true);
+  }
+}
+
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: math.div($size, 2);
+  // size를 받아서 2로 나눔 = math, div()내장함수
+  // 사용하기 위해서는 상단에 @use "sass:math";를 적어주어야 한다.
+  @if $direction == "up" {
+    // @if $direction == "up" or $direction == "u" {
+    // 이렇게 up 또는 짧게 u라고 써도 적용되게 설정할 수 도 있음
+    border-bottom-color: $color;
+  } @else if $direction == "down" {
+    border-top-color: $color;
+  } @else if $direction == "right" {
+    border-left-color: $color;
+  } @else if $direction == "left" {
+    border-right-color: $color;
+  }
+}
+
+.triangle {
+  @include triangle(right, 10px, blue);
+}
+
+@mixin position($xValue, $yValue) {
+  position: absolute;
+  left: $xValue;
+  top: $yValue;
+
+  @if $xValue == 50% and $yValue == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $yValue == 50% {
+    transform: translateY(-50%);
+  } @else if $xValue == 50% {
+    transform: translateX(-50%);
+  }
+}
+
+.postion {
+  @include position(50, 50%);
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  background-color: #fff;
+}

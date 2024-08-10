@@ -1,0 +1,120 @@
+.icon1 {
+  font-size: 10px;
+}
+
+.icon2 {
+  font-size: 20px;
+}
+
+.icon3 {
+  font-size: 30px;
+}
+
+p:nth-child(1) {
+  height: 3px;
+}
+
+p:nth-child(2) {
+  height: 6px;
+}
+
+p:nth-child(3) {
+  height: 9px;
+}
+
+.product-list {
+  width: 375px;
+  overflow: auto;
+}
+.product-list ul {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px 0;
+  width: 491px;
+}
+.product-list li {
+  list-style: none;
+}
+.product-list a {
+  display: block;
+  padding: 68px 0 0;
+  color: var(--Neutral-20, #1e2530);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+.product-list .ico1 {
+  background: url(../07-for/images/product1.png) no-repeat center top;
+}
+.product-list .ico1:hover {
+  background: url(../07-for/images/product1_hover.png) no-repeat center top;
+}
+.product-list .ico2 {
+  background: url(../07-for/images/product2.png) no-repeat center top;
+}
+.product-list .ico2:hover {
+  background: url(../07-for/images/product2_hover.png) no-repeat center top;
+}
+.product-list .ico3 {
+  background: url(../07-for/images/product3.png) no-repeat center top;
+}
+.product-list .ico3:hover {
+  background: url(../07-for/images/product3_hover.png) no-repeat center top;
+}
+.product-list .ico4 {
+  background: url(../07-for/images/product4.png) no-repeat center top;
+}
+.product-list .ico4:hover {
+  background: url(../07-for/images/product4_hover.png) no-repeat center top;
+}
+.product-list .ico5 {
+  background: url(../07-for/images/product5.png) no-repeat center top;
+}
+.product-list .ico5:hover {
+  background: url(../07-for/images/product5_hover.png) no-repeat center top;
+}
+.product-list .ico6 {
+  background: url(../07-for/images/product6.png) no-repeat center top;
+}
+.product-list .ico6:hover {
+  background: url(../07-for/images/product6_hover.png) no-repeat center top;
+}
+.product-list .ico7 {
+  background: url(../07-for/images/product7.png) no-repeat center top;
+}
+.product-list .ico7:hover {
+  background: url(../07-for/images/product7_hover.png) no-repeat center top;
+}
+.product-list .ico8 {
+  background: url(../07-for/images/product8.png) no-repeat center top;
+}
+.product-list .ico8:hover {
+  background: url(../07-for/images/product8_hover.png) no-repeat center top;
+}
+.product-list .ico9 {
+  background: url(../07-for/images/product9.png) no-repeat center top;
+}
+.product-list .ico9:hover {
+  background: url(../07-for/images/product9_hover.png) no-repeat center top;
+}
+.product-list .ico10 {
+  background: url(../07-for/images/product10.png) no-repeat center top;
+}
+.product-list .ico10:hover {
+  background: url(../07-for/images/product10_hover.png) no-repeat center top;
+}
+.product-list .ico11 {
+  background: url(../07-for/images/product11.png) no-repeat center top;
+}
+.product-list .ico11:hover {
+  background: url(../07-for/images/product11_hover.png) no-repeat center top;
+}
+.product-list .ico12 {
+  background: url(../07-for/images/product12.png) no-repeat center top;
+}
+.product-list .ico12:hover {
+  background: url(../07-for/images/product12_hover.png) no-repeat center top;
+}
+
+/*# sourceMappingURL=07.for.css.map */

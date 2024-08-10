@@ -1,0 +1,143 @@
+// css 변수
+// :root {
+//   --변수명: 변수값;
+// }
+
+// scss 변수
+// $변수명:변수값;
+// 변수정의
+// 전역변수
+$black: #1e2530;
+$green: #09e27c;
+$blue: #00d4ea;
+$yellow: #ffdc20;
+$gray: #555d67;
+$white: #ffffff;
+// 배포용 로컬용 url 경로를 설정해주면 편리함
+$imgurl: "../01-variable/images/";
+// $imgurl: "/images/" // 배포용 경로
+$p8: 8px;
+:root {
+  --green: #{$green};
+}
+.dark {
+  :root {
+    --green: #{$black};
+  }
+}
+
+.alert-type1 {
+  // 문자보간 #{}
+  background: url(#{$imgurl}bu_arrow_right_white.svg) no-repeat right 12px center$black;
+  // background: url(../01-variable/images/bu_arrow_right_white.svg) no-repeat right 12px center$black;
+  color: $white;
+  padding: $p8;
+}
+
+// 변수 유효범위
+.badge {
+  color: $black;
+  // background: $green;
+  background: var(--green);
+}
+.alert-type2 {
+  .badge {
+    $green: $blue;
+    // 전역변수는 green이었지만 재정의함으로서 blue, 단 선택자 안에서만 사용해야함(클래스)
+    color: $black;
+    background: $green;
+  }
+}
+// 지역변수
+.alert-type3 {
+  $mint: blue;
+  .badge {
+    background: $mint;
+  }
+}
+// 변수 재할당
+.alert-type3 {
+  $background: $yellow;
+  .badge {
+    background: $background;
+  }
+}
+
+// scss 문자보간: 속성 선택자 css변수값 클래스명
+
+// 클래스를 변수로 활용하기
+$className: ".alert-type";
+$round: border-radius;
+
+#{$className}1 {
+  color: blue;
+  #{$round}: 50px;
+}
+#{$className}2 {
+  color: blue;
+}
+#{$className}3 {
+  color: blue;
+}
+
+// 데이터 타입
+// string 문자형
+$b: bold;
+.alert-type1 {
+  font-weight: $b;
+}
+
+// number 숫자형
+$mt: 8px;
+$mx: 9px;
+.alert-type1 {
+  padding-block: $mt;
+  // padding-block 상하 패딩
+  // padding-inline 좌우 패딩
+  .badge {
+    padding-inline: $mx;
+  }
+}
+
+// color 색상형
+$black1: #1e2530;
+$black10: rgba($black, 0.1);
+// 투명도만 따로 변수처리 해줄 수 있음
+.alert-type2 {
+  background: $black10;
+}
+
+// list 배열
+// @each $개별데이터변수명 in $리스트형변수명 {
+// }
+$mt: (10, 20, 30, 50, 100);
+
+@each $marginTop in $mt {
+  .mt#{$marginTop} {
+    margin-top: $marginTop + px;
+  }
+}
+
+// 한 개의 데이터, 한 개의 데이터
+$textType: type1 #000 13px 500 18px, type2 #fff 13px 700 18px;
+@each $className, $color, $fontSize, $fontWeight, $lineHeight in $textType {
+  .text-#{$className} {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+  }
+}
+
+// map 객체
+$colors: (
+  "color1": #09e27c,
+  "color2": #00d4ea,
+  "color3": #ffdc20,
+);
+
+.alert-type3 {
+  .badge {
+    color: map-get($colors, color1);
+  }
+}

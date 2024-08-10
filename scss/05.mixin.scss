@@ -1,0 +1,91 @@
+// 상위에 변수 놓고, mixin
+// 1. 변수
+// 2. mixin(css에서 컴파일되지 않음, sass내에서만 사용)
+
+@mixin shadowBox($rounded: null, $borderWidth: null, $borderColor: gray) {
+  // 매개변수 값 null로 넣으면 초기값이 없음. 0으로 넣으면 0으로 들어감
+  border-radius: $rounded;
+  border: $borderWidth solid $borderColor;
+  background: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.06);
+  &:hover {
+    border-color: salmon;
+  }
+
+  // li의 클래스 box를 가지고 있으면 적용되게!
+  // &.box {
+  //   // 매개변수 값 null로 넣으면 초기값이 없음. 0으로 넣으면 0으로 들어감
+  //   border-radius: $rounded;
+  //   border: $borderWidth solid $borderColor;
+  //   background: #fff;
+  //   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.06);
+  //   &:hover {
+  //     border-color: salmon;
+  //   }
+  // }
+}
+
+.info-list {
+  li:nth-child(1) {
+    @include shadowBox;
+  }
+  li:nth-child(2) {
+    @include shadowBox(null, 4px);
+  }
+  li:nth-child(3) {
+    @include shadowBox(16px, 2px, #cacaca);
+  }
+}
+
+$grayca: #cacaca;
+$white: #ffffff;
+$gray33: #333333;
+$gray82: #828785;
+$imageUrl: "../05-mixin/images/";
+$fileName: "ico_arrow.svg";
+$coordinate: "no-repeat right center";
+$black: #000;
+
+@mixin text($color, $fontSize, $fontWeight) {
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: 1;
+  letter-spacing: -1.2px;
+}
+@mixin background($fileName, $coordinate) {
+  background: url(#{$imageUrl}#{$fileName}) no-repeat $coordinate;
+}
+@mixin shadow {
+  border-radius: 20px;
+  border: 2px solid $grayca;
+  background: $white;
+  box-shadow: 0px 8px 16px 0px rgba($black, 0.06);
+}
+
+.quick-link {
+  strong {
+    @include text($gray33, 32px, 700);
+  }
+  p {
+    @include text($gray82, 24px, 400);
+  }
+  a {
+    @include background("ico_arrow.svg", right 40px center);
+    display: block;
+    height: 158px;
+  }
+  li {
+    @include shadow;
+    list-style: none;
+  }
+  .ico1 {
+    @include background("ico1.svg", 40px center);
+  }
+  .ico2 {
+    @include background("ico2.svg", 40px center);
+  }
+  .ico2 {
+    @include background("ico3.svg", 40px center);
+  }
+}

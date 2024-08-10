@@ -1,0 +1,44 @@
+// extend 많이 사용하진 않음
+// 컴포넌트 내에서 많이 적용될 때 사용
+
+.m0auto {
+  width: 1200px;
+  margin: 0 auto;
+  // = margin-inline: auto;
+}
+
+// %m0auto {
+//   width: 1200px;
+//   margin: 0 auto;
+// }
+// 앞에 %를 작성해주면 컴파일 되지 않음
+// .클래스를 적게되면 클래스를 포함해서 적용
+// css에서 확인해보면 차이점을 확인 할 수 있음
+
+.visual {
+  @extend .m0auto;
+}
+
+%input {
+  padding-inline: 16px;
+  height: 47px;
+  border-radius: 30px;
+  border: 1px solid var(--Neutral-70, #d6d9e1);
+  color: var(--Neutral-20, #1e2530);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23px;
+  &::placeholder {
+    color: var(--Neutral-50, #a5acb8);
+  }
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+input[type="email"] {
+  @extend %input;
+}
+input[type="password"] {
+  @extend %input;
+}

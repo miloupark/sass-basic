@@ -1,0 +1,53 @@
+@for $index from 1 through 3 {
+  .icon#{$index} {
+    font-size: $index * 10px;
+    // font-size: $index + px;
+  }
+}
+
+@for $nth from 1 through 3 {
+  p:nth-child(#{$nth}) {
+    height: $nth * 3px;
+  }
+}
+
+$imageUrl: "../07-for/images/";
+@mixin background($fileName, $coordinate) {
+  background: url(#{$imageUrl}#{$fileName}) no-repeat $coordinate;
+}
+
+.product-list {
+  width: 375px;
+  overflow: auto;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px 0;
+    width: 491px;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    display: block;
+    padding: 68px 0 0;
+    color: var(--Neutral-20, #1e2530);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+  }
+  // .ico1 {
+  //   background: url(../07-for/images/product1.png) no-repeat center top;
+  // }
+
+  @for $index from 1 through 12 {
+    .ico#{$index} {
+      @include background("product#{$index}.png", center top);
+      &:hover {
+        // 이미지는 없지만 이렇게 hover했을 때 이미지가 변경되도록 작업할 수 있음
+        @include background("product#{$index}_hover.png", center top);
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.avatar__image img {
+  width: 100px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.avatar2 {
+  text-align: center;
+}
+.avatar2__image img {
+  width: 120px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1000px;
+}
+.avatar2__name {
+  color: #333;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.9px;
+}
+.dark .avatar2__name {
+  color: #dbdbdb;
+}
+.avatar2__postition {
+  color: #666;
+  font-size: 14px;
+  letter-spacing: -0.7px;
+}
+.dark .avatar2__postition {
+  color: #ffffff;
+}
+
+body {
+  background: #fff;
+}
+body.dark {
+  background: #000;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px;
+  border-left-color: blue;
+}
+
+.postion {
+  position: absolute;
+  left: 50;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=09.ifelse.css.map */

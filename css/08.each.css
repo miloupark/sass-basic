@@ -1,0 +1,23 @@
+.fs10 {
+  font-size: 10px;
+}
+
+.fs20 {
+  font-size: 20px;
+}
+
+.fs30 {
+  font-size: 30px;
+}
+
+.shop-info-list .open {
+  background: url(../08-each/images/ico_clock.svg) no-repeat left;
+}
+.shop-info-list .dayoff {
+  background: url(../08-each/images/ico_date.svg) no-repeat left;
+}
+.shop-info-list .tel {
+  background: url(../08-each/images/ico_tel.svg) no-repeat left;
+}
+
+/*# sourceMappingURL=08.each.css.map */
