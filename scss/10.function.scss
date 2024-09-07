@@ -24,7 +24,6 @@ $easings: (
   out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275),
   inout-back: cubic-bezier(0.68, -0.55, 0.265, 1.55),
 );
-
 @function ease($keyword) {
   @if map-has-key($easings, $keyword) {
     @return map-get($easings, $keyword);
@@ -37,19 +36,12 @@ $easings: (
 }
 
 @function vw($value, $base: 720) {
-  // $sum: 실측값 / 기준값 * 100vw;
-  $sum: $value / $base * 100vw;
+  $sum: $value / 720 * 100vw;
   @return $sum;
 }
 
-// @function rem($value) {
-//   $sum: $value / 10 * 1rem;
-//   // $sum: $value / 10 + rem; 으로 작업해도 똑같다
-//   @return $sum;
-// }
-
 html {
-  font-size: 62.5%; // 10px
+  font-size: 62.5%; // 10px;
 }
 body {
   font-size: 1rem;
