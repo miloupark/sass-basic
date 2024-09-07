@@ -33,13 +33,12 @@ $easings: (
 
 @function rem($value, $base: 10) {
   $sum: $value / $base * 1rem;
-  // $sum: $value / 10 + rem; 으로 작업해도 똑같다
   @return $sum;
 }
 
 @function vw($value, $base: 720) {
   // $sum: 실측값 / 기준값 * 100vw;
-  $sum: $value / 720 * 100vw;
+  $sum: $value / $base * 100vw;
   @return $sum;
 }
 

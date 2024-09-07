@@ -1,0 +1,56 @@
+.parent {
+  container: list/inline-size;
+  border: 1px solid red;
+  padding: 20px;
+  width: 80vw;
+}
+.parent .child {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  border: 1px solid blue;
+}
+
+@container list (width > 500px) {
+  .child {
+    flex-direction: row;
+  }
+}
+.parent2 {
+  container: gallery/inline-size;
+  display: grid;
+  gap: 20px;
+  width: 80vw;
+  margin: auto;
+}
+.parent2 .child {
+  container: child/inline-size;
+  display: flex;
+  gap: 40px;
+}
+.parent2 .child:nth-child(even) .photo {
+  order: 1;
+}
+
+.photo {
+  width: 300px;
+  aspect-ratio: 16/9;
+  background: lightgray;
+}
+
+.parent .text-type1 {
+  flex: 1;
+}
+
+@container gallery (width < 500px) {
+  .child {
+    color: red;
+  }
+}
+@container child (width < 500px) {
+  .parent2 .photo {
+    background: orange;
+  }
+}
+
+/*# sourceMappingURL=11.container.css.map */

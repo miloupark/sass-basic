@@ -13,11 +13,11 @@ body {
   line-height: 2.3rem;
 }
 .sum-list__total div {
-  font-size: 2.5vw;
+  font-size: 4.8vw;
   transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .sum-list__total div:hover {
-  font-size: 3.4722222222vw;
+  font-size: 6.6666666667vw;
 }
 
 /*# sourceMappingURL=10.function.css.map */
