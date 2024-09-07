@@ -1,10 +1,19 @@
+@mixin container($name, $size) {
+  @container #{$name} (width < #{$size}) {
+    @content;
+  }
+}
+
 .parent {
-  // container-name: list;
-  // container-type: inline-size;
+  //   container-name: list;
+  //   container-type: inline-size;
+  // container:이름 / 타입;
   container: list / inline-size;
+
   border: 1px solid red;
   padding: 20px;
   width: 80vw;
+
   .child {
     display: flex;
     flex-direction: column;
@@ -13,47 +22,52 @@
   }
 }
 
-@container list (width > 500px) {
+@container list (width < 500px) {
   .child {
-    flex-direction: row;
+    font-size: 30px;
+    color: blue;
   }
 }
 
 .parent2 {
-  container: gallery / inline-size;
+  &.type1 {
+    container: gallery / inline-size;
+    .child {
+      container: child / inline-size;
+    }
+  }
   display: grid;
   gap: 20px;
   width: 80vw;
   margin: auto;
+
   .child {
-    container: child / inline-size;
     display: flex;
     gap: 40px;
+    @include container("gallery", 500px) {
+      font-size: 30px;
+    }
+
     &:nth-child(even) {
       .photo {
         order: 1;
       }
     }
   }
-}
-.photo {
-  width: 300px;
-  aspect-ratio: 16/9;
-  background: lightgray;
-}
-.text-type1 {
-  .parent & {
-    flex: 1;
-  }
-}
 
-@container gallery (width < 500px) {
-  .child {
-    color: red;
+  .photo {
+    width: 300px;
+    aspect-ratio: 16/9;
+    background: lightgray;
+    @include container(child, 300px) {
+      background: tomato;
+    }
   }
-}
-@container child (width < 500px) {
-  .parent2 .photo {
-    background: orange;
+
+  .text-type1 {
+    flex: 1;
+    @container style(--color:true) {
+      color: pink;
+    }
   }
 }

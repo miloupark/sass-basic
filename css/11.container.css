@@ -11,45 +11,52 @@
   border: 1px solid blue;
 }
 
-@container list (width > 500px) {
+@container list (width < 500px) {
   .child {
-    flex-direction: row;
+    font-size: 30px;
+    color: blue;
   }
 }
 .parent2 {
-  container: gallery/inline-size;
   display: grid;
   gap: 20px;
   width: 80vw;
   margin: auto;
 }
-.parent2 .child {
+.parent2.type1 {
+  container: gallery/inline-size;
+}
+.parent2.type1 .child {
   container: child/inline-size;
+}
+.parent2 .child {
   display: flex;
   gap: 40px;
+}
+@container gallery (width < 500px) {
+  .parent2 .child {
+    font-size: 30px;
+  }
 }
 .parent2 .child:nth-child(even) .photo {
   order: 1;
 }
-
-.photo {
+.parent2 .photo {
   width: 300px;
   aspect-ratio: 16/9;
   background: lightgray;
 }
-
-.parent .text-type1 {
-  flex: 1;
-}
-
-@container gallery (width < 500px) {
-  .child {
-    color: red;
+@container child (width < 300px) {
+  .parent2 .photo {
+    background: tomato;
   }
 }
-@container child (width < 500px) {
-  .parent2 .photo {
-    background: orange;
+.parent2 .text-type1 {
+  flex: 1;
+}
+@container style(--color:true) {
+  .parent2 .text-type1 {
+    color: pink;
   }
 }
 
